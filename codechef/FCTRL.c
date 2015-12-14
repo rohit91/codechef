@@ -1,77 +1,51 @@
+/* FCTRL:
+ * Find the number of trailing zeros in the factorial of a number
+ * For number of zeros, we have to find number of 10 as factor of given
+ * number. Since 10 itself has 2 and 5 as factors. We can find the no. 
+ * of 10s by finding the total numbers of 2s and 5s as factors and
+ * using min(no. of 2s, no. of 5s) to get total number of 10 as factors
+ * 
+ * In case of factorial, it is guaranteed that a given number has always
+ * higher number of 2s as factors than 5s. Hence it is sufficient to 
+ * find the number of 5s as factors of a given number to get the no. of
+ * trailing zeros in the factorial of the given number. 
+ * 
+ * Hence, below code finds no. of 5 as factor in factorial of a number
+ */
+
 #include <stdio.h>
 
-int factors(long long unsigned int num, long long unsigned int *fact5, long long unsigned int *fact2){
-    if (num == 0){
-        *fact5 = 0;
-        *fact2 = 0;
-        return 0;
-    }
-    long long unsigned int temp_fact5, temp_fact2, *ptr_temp_fact5, *ptr_temp_fact2;
-    temp_fact5 = 0;
-    temp_fact2 = 0;
-    ptr_temp_fact5 = &temp_fact5;
-    ptr_temp_fact2 = &temp_fact2;
-    
-    if (num % 10 == 0){
-        factors(num/10, ptr_temp_fact5, ptr_temp_fact2);
-        *fact5 = 1 + (*ptr_temp_fact5);
-        *fact2 = 1 + (*ptr_temp_fact2);
-        return 0;
-    }
-    else if (num % 10 == 5){
-        factors(num/5, ptr_temp_fact5, ptr_temp_fact2);
-        *fact5 = 1 + (*ptr_temp_fact5);
-        *fact2 = 0 + (*ptr_temp_fact2);
-        return 0;
-    }
-    else if (num % 2 == 0){
-        factors(num/2, ptr_temp_fact5, ptr_temp_fact2);
-        *fact5 = 0 + (*ptr_temp_fact5);
-        *fact2 = 1 + (*ptr_temp_fact2);
-        return 0;
-    }
-    else{
-        *fact5 = 0;
-        *fact2 = 0;
-        return 0;
-    }
-}
 int main(){
-    long long unsigned int num = 0;
-    long long unsigned int temp_fact5, temp_fact2, *ptr_temp_fact5, *ptr_temp_fact2;
-    temp_fact5=0;
-    temp_fact2=0;
-    ptr_temp_fact5 = &temp_fact5;
-    ptr_temp_fact2 = &temp_fact2;
     
+    long long unsigned int fact5, num = 0;
+        
     int inpCnt = 0;
     scanf("%d", &inpCnt);
     
-    long long unsigned int fact5, fact2;
-    long long unsigned int i = 1;
     int count = 0;
     for (count=0; count<inpCnt; count++)
     {
-    fact5=0;
-    fact2=0;
-    scanf("%llu", &num);
-    
-    for (i=1; i<= num; i++)
-    {
-        temp_fact5=0;
-        temp_fact2=0;
-        ptr_temp_fact5 = &temp_fact5;
-        ptr_temp_fact2 = &temp_fact2;
-        factors(i, ptr_temp_fact5, ptr_temp_fact2);
-        fact5 += temp_fact5;
-        fact2 += temp_fact2;
-    }
-    
-    if (fact5<fact2)
+        fact5=0;
+        scanf("%llu", &num);
+        
+        /* First check for factors of 5, then 25, then 125 and so on
+         * Like 623! has total 623/5 = 124
+         *                   + 623/25 = 24
+         *                   + 623/125 = 4
+         *                  ----------------
+         *                              152 trailing zeros
+         * Stop loop when factCheck becomes > given number
+         */
+         
+        int factCheck = 5;
+        while ( factCheck <= num){
+            fact5 += num/factCheck;
+            factCheck *= 5;
+        }
+        
         printf("%llu\n", fact5);
-    else
-        printf("%llu\n", fact2);
     }
+
     return 0;
 }
     

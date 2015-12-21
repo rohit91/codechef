@@ -64,7 +64,7 @@ void mergesrt(unsigned long long int *a, unsigned long long int lower, unsigned 
  */
 void combine(unsigned long long int *a, unsigned long long int lower, unsigned long long int upper)
 {
-    unsigned long long int i =0, j=0, k=0, mid=0;
+    unsigned long long int i=0, j=0, k=0, mid=0;
     mid = (lower + upper)/2;
     
     unsigned long long int *result;

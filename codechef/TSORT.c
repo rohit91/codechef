@@ -30,7 +30,7 @@ int main()
 }
 
 /* Mergrsrt Function
- *      Actual Merge-sort implementation
+ *      Actual Merge-sort implementation. Recursive function
  * 
  * Parameters ::
  *      a    : Pointer to original array

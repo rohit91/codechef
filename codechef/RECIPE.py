@@ -35,4 +35,3 @@ for i in range(T):
     for j in range(2, nums[0] + 1):
         res = gcd(res, nums[j])
     print ' '.join(map(str, map(lambda x: x/res, nums[1:])))
-        

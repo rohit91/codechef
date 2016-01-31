@@ -5,5 +5,5 @@ for i in range(T):
     total = 0
     while B >= 4:
         total += (2*((B-2)//2)) - 1
-        B -= 2
+        B -= 4
     print total

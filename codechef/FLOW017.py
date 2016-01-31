@@ -8,4 +8,3 @@ for i in range(T):
         print c if b > c else b
     else:
         print a
-        

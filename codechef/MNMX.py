@@ -1,3 +1,8 @@
+# IMPORTANT: Don't use this solution. Very slow and useless, though 
+#            gives correct output. 
+# 
+# INSTEAD, use solution in file: MNMX_fastest_possible_approach.py 
+
 #import random
 
 #x = range(11)

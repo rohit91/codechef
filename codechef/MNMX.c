@@ -1,3 +1,7 @@
+/* IMPORTANT: Don't use this solution. Very slow and useless, though 
+              gives correct output. 
+   INSTEAD, use solution in file: MNMX_fastest_possible_approach.py 
+*/
 #include <stdio.h>
 
 #define inp getchar_unlocked

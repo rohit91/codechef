@@ -1,3 +1,8 @@
+# IMPORTANT: Don't use this solution. Very slow and useless, though 
+#            gives correct output. 
+# 
+# INSTEAD, use solution in file: MNMX_fastest_possible_approach.py 
+
 T = int(raw_input())
 
 for i in range(T):

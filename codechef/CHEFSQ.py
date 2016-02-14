@@ -7,15 +7,12 @@ for it in range(T):
     len_f = int(raw_input())
     f = map(int, raw_input().split())
     
-    isSub = False
+    isSub = True
     i, j = 0, 0
-    while (i < len_a and j < len_f):
-        if a[i] == f[j]:
-            j += 1
-            isSub = True
-        elif isSub:
+    while (j < len_f):
+        if f[j] not in a:
             isSub = False
             break
-        i += 1
+        j += 1
         
-    print "Yes" if (isSub and j == len_f) else "No"
+    print "Yes" if (isSub) else "No"

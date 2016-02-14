@@ -7,9 +7,15 @@ for it in range(T):
     len_f = int(raw_input())
     f = map(int, raw_input().split())
     
-    a_str = ''.join(map(str, a))
-    f_str = ''.join(map(str, f))
-    
-    isSub = f_str in a_str
+    isSub = False
+    i, j = 0, 0
+    while (i < len_a and j < len_f):
+        if a[i] == f[j]:
+            j += 1
+            isSub = True
+        elif isSub:
+            isSub = False
+            break
+        i += 1
         
-    print "Yes" if  isSub else "No"
+    print "Yes" if (isSub and j == len_f) else "No"

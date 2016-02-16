@@ -18,6 +18,7 @@ for i in range(T):
     print res
 
     ## Shortcut way
+    '''
     if N%4 == 0:
         res = N
     elif N%4 == 1:
@@ -27,3 +28,4 @@ for i in range(T):
     else:
         res = 0
     print res
+    '''

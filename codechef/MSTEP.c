@@ -41,24 +41,17 @@ int main() {
         for (i=1; i<N*N; i++) {
             dest = map[i];
             
-            while(curr.x != dest.x) {
-                if (curr.x < dest.x)
-                    curr.x++;
-                else
-                    curr.x--;
-                
-                steps++;
-            }
+            if (curr.x < dest.x)
+                steps += dest.x - curr.x;
+            else
+                steps += curr.x - dest.x;
+            curr.x = dest.x;
             
-            while(curr.y != dest.y) {
-                if (curr.y < dest.y) 
-                    curr.y++;
-                else
-                    curr.y--;
-                    
-                steps++;
-            }
-            
+            if (curr.y < dest.y)
+                steps += dest.y - curr.y;
+            else
+                steps += curr.y - dest.y;
+            curr.y = dest.y;
         }
         free(map);
         printf("%d\n", steps);

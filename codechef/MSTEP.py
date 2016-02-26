@@ -15,16 +15,8 @@ for it in range(T):
     curr = mapping[0]
     for i in range(1, N**2):
         dest = mapping[i]
-        while(curr[0] != dest[0]):
-            if curr[0] < dest[0]:
-                curr[0] += 1
-            else:
-                curr[0] -= 1
-            steps += 1
-        while(curr[1] != dest[1]):
-            if curr[1] < dest[1]:
-                curr[1] += 1
-            else:
-                curr[1] -= 1
-            steps += 1
+        steps +=  abs(curr[0]-dest[0])
+        curr[0] = dest[0]
+        steps +=  abs(curr[1]-dest[1])
+        curr[1] = dest[1]
     print steps

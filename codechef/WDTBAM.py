@@ -11,6 +11,6 @@ for it in range(T):
     for i in range(len_s):
         if answrd[i] == corr[i]:
             num_corr += 1
-            if Wi[num_corr] > Wi[_max]:
+            if Wi[num_corr] >= Wi[_max]:
                 _max = num_corr
-    print Wi[num_corr]
+    print Wi[_max]
